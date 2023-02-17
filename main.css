@@ -55,7 +55,7 @@ body {
   border-radius: 3%;
   box-sizing: border-box;
   border-radius: 0 0 3px 3px;
-  background-color: rgb(3, 2, 2);
+  background-color: rgb(32, 31, 31);
   position: absolute;
   top: -100%
 }
@@ -88,3 +88,4 @@ body {
   left: 87%;
 }
 /* set up media query so the piano doesn't stretch too much */
+/* set up transform of keys based on the key presses! */
