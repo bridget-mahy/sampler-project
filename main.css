@@ -108,8 +108,6 @@ body {
   font-size: 1.25rem;
 }
 
-/* ADD TRANSFORM */
-
 .black-key.active {
   background-color: blue;
   opacity: 0.8;
@@ -152,4 +150,3 @@ body {
   left: 87%;
 }
 /* set up media query so the piano doesn't stretch too much */
-/* set up transform of keys based on the key presses! */
