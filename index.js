@@ -1,10 +1,10 @@
 // assigning my MP3s to the piano keys!
 
 const pianoKeys = document.getElementsByClassName('key')
+console.log(pianoKeys)
 
 let keyboard = [
   { name: 'a', color: 'white' },
-  { name: 'w', color: 'black' },
   { name: 's', color: 'white' },
   { name: 'd', color: 'white' },
   { name: 'f', color: 'white' },
@@ -14,6 +14,7 @@ let keyboard = [
   { name: 'k', color: 'white' },
   { name: 'l', color: 'white' },
   { name: ';', color: 'white' },
+  { name: 'w', color: 'black' },
   { name: 'e', color: 'black' },
   { name: 't', color: 'black' },
   { name: 'y', color: 'black' },
@@ -42,8 +43,8 @@ let sounds = [
   'piano-keys/key 17.wav',
 ]
 
+// EVENT LISTENER //
 document.addEventListener('keydown', function (e) {
-  e.preventDefault()
   let pressed = e.key
   switch (pressed) {
     // white keys
@@ -103,9 +104,10 @@ document.addEventListener('keydown', function (e) {
       console.log('not on keyboard')
   }
 
-  // define play function
+  // define play function AND animation!
   function playSound() {
-    // If the event.key press is in the keyboard array, then get the index of this key object.
+    e.preventDefault()
+    // If the event.key press letter is in the 'names' of keyboard array, then get the index of this key object.
     const keyPress = keyboard.find((keyboard) => keyboard.name === pressed)
     // Use the index of 'keyPress' to define the index for accessing sounds in the sounds array.
     if (keyPress) {
@@ -113,8 +115,23 @@ document.addEventListener('keydown', function (e) {
     }
     let note = new Audio(sounds[index])
     note.play()
-    console.log(note)
+    // link play sound to 'piano keys' index + add 'active' styling class
+    const played = pianoKeys[index]
+    played.classList.add('active')
+    // styling on 'key up'
+    document.addEventListener('keyup', function (e) {
+      played.classList.remove('active')
+      const keyUp = keyboard.find((keyboard) => keyboard.name === pressed)
+      if (keyUp) {
+        upIndex = keyboard.indexOf(keyPress)
+      }
+      let up = pianoKeys[upIndex]
+      // reduce opacity in css
+      up.classList.add('release')
+      // remove active class on 'key up'
+      setTimeout(() => {
+        up.classList.remove('release')
+      }, 500)
+    })
   }
 })
-
-//

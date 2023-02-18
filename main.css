@@ -1,3 +1,6 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
 body {
   padding: 0;
   margin: 0;
@@ -24,6 +27,7 @@ body {
   position: relative;
   top: -25%;
   height: 132%;
+  padding-bottom: -2%;
   width: 100%;
   overflow: hidden;
 }
@@ -35,11 +39,33 @@ body {
 
 .white-key {
   width: 10%;
-  height: 105%; 
+  height: 100%; 
   border: solid rgb(32, 31, 31) 0.5px;
   border-radius: 0 0 3px 3px;
   box-sizing: border-box;
   background-color: rgb(232, 226, 220);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+}
+/* ADD TRANSFORM */
+
+.white-key.active {
+  background-color: blue;
+  opacity: 0.8;
+  transition-property: all;
+  transition-duration: 0.1s;
+}
+
+.white-key.release {
+  opacity: 1;
+  background-color: rgb(232, 226, 220);
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
 .black-keys {
@@ -50,14 +76,38 @@ body {
 
 .black-key {
   width: 5%;
-  height: 80%; 
+  height: 75%; 
   border: solid rgb(32, 31, 31) 0.5px;
   border-radius: 3%;
   box-sizing: border-box;
   border-radius: 0 0 3px 3px;
   background-color: rgb(32, 31, 31);
   position: absolute;
-  top: -100%
+  top: -100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1%;
+  color: rgb(232, 226, 220);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.25rem;
+}
+
+/* ADD TRANSFORM */
+
+.black-key.active {
+  background-color: blue;
+  opacity: 0.8;
+  transition-property: all;
+  transition-duration: 0.1s;
+}
+
+.black-key.release {
+  opacity: 1;
+  background-color: rgb(32, 31, 31);
+  transition-property: all;
+  transition-duration: 0.5s;
 }
 
 .black-key:nth-child(1) {
